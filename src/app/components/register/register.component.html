@@ -1,0 +1,41 @@
+<div class="fondo">
+  <div class="container">
+    <div class="h-100 d-flex justify-content-center align-items-center">
+      <div class="p-3 p-md-5 registro">
+        <form class="text-center">
+          <label class="h3 text-dark">REGISTRO</label>
+          <div class="formulario">
+            <input id="campo-nombre" type="text" placeholder="Nombres">
+          </div>
+          <div class="formulario">
+            <input id="campo-apellido" type="text" placeholder="Apellidos">
+          </div>
+          <div class="formulario">
+            <input id="campo-nombreU-registro" type="text" placeholder="Nombre de usuario">
+          </div>
+          <div class="formulario">
+            <input id="campo-correo-registro" type="email" placeholder="Correo electronico">
+          </div>
+          <div class="formulario">
+            <input id="campo-contraseña-registro" type="password" placeholder="Contraseña">
+          </div>
+          <div class="formulario">
+            <input id="campo-contraseña2-registro" type="password" placeholder="Repetir contraseña">
+          </div>
+          <div class="formulario">
+            <input id="campo" type="date" placeholder="Fecha de nacimiento">
+          </div>
+          <div class="d-flex pl-4">
+            <label for="checkbox1" class="form-check-label ">
+              <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input"><a href="#" class="h6 text-success">Terminos y condiciones</a>
+            </label>
+          </div>
+          <div class="d-flex justify-content-between align-items-end mt-4">
+            <button [routerLink]="['/iniciarSesion']" class="btn btn-outline-success">Volver</button>
+            <button (click)="hola = 1" class="btn btn-success">Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
