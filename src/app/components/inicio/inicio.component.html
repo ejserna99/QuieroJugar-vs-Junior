@@ -11,7 +11,7 @@
             <ng-container>
               <ul class="list-group">
                 <li class="nav-link" *ngFor="let item of items | async">
-                    <app-publicacion></app-publicacion>
+                    <app-publicacion [publicacion]="item"></app-publicacion>
                 </li>
               </ul>
             </ng-container>

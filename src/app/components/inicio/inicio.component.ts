@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { DataApiService } from '../../service/data-api.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,11 +11,11 @@ import { Observable } from 'rxjs';
 
 export class InicioComponent implements OnInit {
 
-  items:Observable<any[]>;
+  items:any;
 
-  constructor(private router:Router, db: AngularFirestore)
+  constructor(private conexion: DataApiService, private router:Router)
   {
-    this.items = db.collection('publicacion').valueChanges();
+    this.items = conexion.publicaciones();
   }
 
   ngOnInit() {

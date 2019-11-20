@@ -8,3 +8,8 @@ hr{
 .btn{
     background: #43c71f;
 }
+.btn-publi{
+    padding-bottom: 2px;
+    padding-top: 1px;
+    margin-bottom: 5px;
+}
