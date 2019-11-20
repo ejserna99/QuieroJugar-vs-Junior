@@ -12,4 +12,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  loginGoogle() {
+  }
+
+  logout() {
+  }
+
 }

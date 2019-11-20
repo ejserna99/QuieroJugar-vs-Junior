@@ -7,11 +7,11 @@
 	    <input class="form-control mr-sm-2 mr-lg-3" type="search"placeholder="Nombre usuario" aria-label="Search">
 		  <button class="btn btn-outline-dark d-none d-sm-block" type="submit">Buscar</button>
 	  </form>
-	  <a class="nav-item text-dark d-flex row ml-2 mr-3 mr-md-0 p-md-0 text-decoration-none col-4 col-sm-4 col-md-1 col-lg-2 justify-content-sm-center justify-content-lg-end" href="#inicio">
-      <i class="fas fa-2x fa-envelope-square"></i>
-      <span class="font-weight-bold ml-2 align-self-center d-none d-sm-block d-md-none d-lg-block">Mensajes</span>
+		<a *ngIf="isLogget" class="nav-item text-dark d-flex row ml-2 mr-3 mr-md-0 p-md-0 text-decoration-none col-4 col-sm-4 col-md-1 col-lg-2 justify-content-sm-center justify-content-lg-end">
+			<i class="fas fa-2x fa-envelope-square"></i>
+			<span class="font-weight-bold ml-2 align-self-center d-none d-sm-block d-md-none d-lg-block">Mensajes</span>
 		</a>
-		<div class="nav-item dropdown p-md-0 col-6 col-sm-7 col-md-4 col-lg-3">
+		<div *ngIf="isLogget" class="nav-item dropdown p-md-0 col-6 col-sm-7 col-md-4 col-lg-3">
 	    <a class="nav-link text-dark d-flex align-content-center justify-content-end justify-content-lg-start" id="menu" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 	      <div class="image">
 	        <img src="../../../assets/image/avatar-01.jpg">

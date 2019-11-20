@@ -8,7 +8,13 @@
           </div>
           <div class="col-lg-8 col-md-12 col-sm-12 order-lg-first bg-light mt-3 p-3 contenedores">
             <p class="font-weight-bold h3 text-center">Publicaciones</p>
-            <app-publicacion></app-publicacion>
+            <ng-container>
+              <ul class="list-group">
+                <li class="nav-link" *ngFor="let item of items | async">
+                    <app-publicacion></app-publicacion>
+                </li>
+              </ul>
+            </ng-container>
           </div>
       </div>
   </div>

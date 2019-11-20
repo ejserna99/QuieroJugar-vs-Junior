@@ -60,6 +60,9 @@ nav{
 .text-dark i {
     color: #43c71f;
 }
+.active {
+    background-color: #43c71f;
+}
 .cont{
     width: 100%;
     padding-right: 15px;
