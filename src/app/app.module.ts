@@ -3,9 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 
-import { AngularFireModule } from '@angular/fire';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
+import { MatDialogModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
+
+import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -28,7 +32,7 @@ import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { MensajeInComponent } from './components/C-mensaje/mensaje-in/mensaje-in.component';
 import { MensajeOutComponent } from './components/C-mensaje/mensaje-out/mensaje-out.component';
 import { ErrorComponent } from './components/error/error.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,17 +49,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MensajesComponent,
     MensajeInComponent,
     MensajeOutComponent,
-    ErrorComponent
+    ErrorComponent,
+    ModalDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule, BrowserAnimationsModule // imports firebase/storage only needed for storage features
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
+  entryComponents: [ModalDialogComponent],
   providers: [DataApiService],
   bootstrap: [AppComponent]
 })

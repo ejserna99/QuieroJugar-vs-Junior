@@ -14,7 +14,7 @@
 		<div><p class="ml-3 h6 text-dark order-2">{{publicacion.texto_publi}}</p><br></div>
 		<div class="d-flex justify-content-between justify-content-sm-end">
 			<div class="d-flex align-items-end ml-3"><p class="m-0 text-secondary d-sm-none">{{publicacion.tipo_publi}}</p></div>
-			<a href="#" class="btn btn-success btn-publi">{{text_btn}}</a>
+			<a (click)="openModal()" class="btn btn-success btn-publi">{{text_btn}}</a>
 		</div>
 	</div>
 </div>

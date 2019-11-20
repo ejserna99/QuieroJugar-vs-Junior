@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataApiService } from 'src/app/service/data-api.service';
+import { MatDialog } from '@angular/material';
+import { ModalDialogComponent } from '../../modal-dialog/modal-dialog.component';
 
 @Component({
   selector: 'app-publicacion',
@@ -12,7 +14,8 @@ export class PublicacionComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
   public text_btn = 'Unirse';
-  constructor(private servicio: DataApiService) { }
+  constructor(private servicio: DataApiService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     if (this.publicacion.tipo_publi == 'Quiero jugar'){
@@ -22,6 +25,14 @@ export class PublicacionComponent implements OnInit {
 
   eliminarPublicacion(id: string) {
     this.servicio.eliminarItem(id);
+  }
+
+  openModal(): void
+  {
+    const dialogRef = this.dialog.open(ModalDialogComponent, {});
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
   }
 
 }
