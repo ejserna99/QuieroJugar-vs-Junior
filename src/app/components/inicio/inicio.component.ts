@@ -11,9 +11,9 @@ import { DataApiService } from '../../service/data-api.service';
 
 export class InicioComponent implements OnInit {
 
-  items:any;
+  items: any;
 
-  constructor(private conexion: DataApiService, private router:Router)
+  constructor(private conexion: DataApiService, private router: Router)
   {
     this.items = conexion.publicaciones();
   }

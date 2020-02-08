@@ -9,9 +9,9 @@ import { ErrorComponent } from './components/error/error.component';
 const routes: Routes = [
   { path: '', redirectTo: '/iniciarSesion', pathMatch: 'full'},
   { path: 'iniciarSesion', component: LoginComponent },
-  { path: 'inicio',        component: InicioComponent },
   { path: 'recuperar',     component: RecoverComponent },
   { path: 'registro',      component: RegisterComponent },
+  { path: 'Inicio',        component: InicioComponent },
   { path: '**',            component: ErrorComponent }
 ];
 
