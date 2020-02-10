@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  public isLogget:boolean = false;
+  public isLogget = false;
 
   constructor() {}
 
