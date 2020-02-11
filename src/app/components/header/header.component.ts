@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   getCurrentUser() {
     this.afsAuth.isAuth().subscribe(auth => {
-      this.isLogget = auth;
+      this.isLogget = (auth) ? true : false;
       if (auth) {
         console.log('Logueado');
       } else {
