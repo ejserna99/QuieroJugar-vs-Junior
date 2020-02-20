@@ -1,0 +1,9 @@
+.img-panel{
+    height: 150px;
+    border-radius: 100%;
+    position: relative;
+}
+.mimodal{
+    display: flex;
+    justify-content: center;
+}

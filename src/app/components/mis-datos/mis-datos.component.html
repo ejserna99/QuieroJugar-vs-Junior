@@ -1,0 +1,46 @@
+<div class="body animated fadeIn">
+  <app-header></app-header>
+  <div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 bg-light mt-3 p-5 contenedores mx-auto">
+				<p class="h5 text-success">Mis datos</p><hr>
+				<div class="p-md-5">
+					<form class="text-center">
+						<mat-form-field class="w-100">
+              <mat-label>Nombre</mat-label>
+              <input matInput [(ngModel)]="registerForm.inputNombre" name="inputNombre" #inputNombre="ngModel">
+              <i matSuffix class="material-icons">account_circle</i>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100">
+              <mat-label>Apellido</mat-label>
+              <input matInput [(ngModel)]="registerForm.inputApellido" name="inputApellido" #inputApellido="ngModel">
+              <i matSuffix class="material-icons">account_circle</i>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100">
+              <mat-label>Nombre de usuario</mat-label>
+              <input matInput [(ngModel)]="registerForm.inputApodo" name="inputApodo" #inputApodo="ngModel">
+              <i matSuffix class="material-icons">account_circle</i>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100">
+              <mat-label>Correo electronico</mat-label>
+              <input matInput [(ngModel)]="registerForm.inputCorreo" name="inputCorreo" #inputPass="ngModel" readonly>
+              <i matSuffix class="material-icons">alternate_email</i>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100">
+              <mat-label>Contraseña</mat-label>
+              <input matInput [(ngModel)]="registerForm.inputPass" name="inputPass" type="password" #inputPass="ngModel">
+              <i matSuffix class="material-icons">vpn_key</i>
+            </mat-form-field>
+					</form>
+				</div><hr>
+				<div class="d-flex justify-content-end mt-2">
+					<button class="btn btn-success">Guardar cambios</button>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
