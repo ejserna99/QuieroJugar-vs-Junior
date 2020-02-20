@@ -36,10 +36,7 @@ nav{
     -moz-border-radius: 3px;
     border-radius: 100%;
 }
-.image > img{
-    width: 100%;
-}
-.image > a img{
+.image > img, .image > a img{
     width: 100%;
 }
 .info .content {
@@ -53,12 +50,9 @@ nav{
 }
 .dropdown-item a i {
     line-height: 1;
-    margin-right: 20px;
+    margin-right: 10px;
     font-size: 18px;
     vertical-align: middle;
-}
-.text-dark i {
-    color: #43c71f;
 }
 .active {
     background-color: #43c71f;
@@ -70,6 +64,27 @@ nav{
     margin-right: auto;
     margin-left: auto;
 }
+
+.dropdown-toggle::after {
+    border-top: none;
+}
+
+.dropdown-item:hover, .dropdown-item:hover a{
+    background-color: #59ff2b;
+    cursor: pointer;
+    color: whitesmoke !important;
+}
+
+.dropdown-item:active {
+    background-color: transparent;
+    color: black;
+}
+
+.dropdown-item:active a {
+    background-color: white;
+    color: black;
+}
+
 @media (min-width: 768px) {
     .img-public{
         height: 90px !important;

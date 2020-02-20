@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { map } from 'rxjs/operators';
+import { RegisterModel } from '../components/register/register.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,8 @@ export class AuthService {
   loginFacebookUser() {
     return new Promise<any>((resolve, reject) => {
       const provider = new firebase.auth.FacebookAuthProvider();
+      provider.addScope('user_name');
+      provider.addScope('user_lastname');
       this.afAuth.auth
       .signInWithPopup(provider)
       .then(res => {
@@ -48,7 +51,14 @@ export class AuthService {
     });
   }
 
-  registerUser() { }
+  registerUser(value: RegisterModel) {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(value.inputCorreo, value.inputPass)
+      .then(res => {
+        resolve(res);
+      }, err => reject(err));
+    });
+  }
 
   logoutUser() {
     return this.afAuth.auth.signOut();

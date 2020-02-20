@@ -1,60 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
-	<div class="container cont row">
-		<a class="navbar-brand text-light col-12 col-lg-2 justify-content-center" href="index.html">
+<nav class="navbar navbar-expand-lg navbar-dark pt-3">
+	<div ngbDropdown class="container cont pb-2 row">
+		<a class="navbar-brand text-light col-12 col-lg-2 justify-content-center" routerLink="/Inicio">
 			<img src="assets/image/logo.png">
 		</a>
 		<form class="form-inline mr-auto mr-md-0 ml-sm-3 col-12 col-md-6 col-lg-5 align-self-center justify-content-center">
-	    <input class="form-control mr-sm-2 mr-lg-3" type="search"placeholder="Nombre usuario" aria-label="Search">
-		  <button class="btn btn-outline-dark d-none d-sm-block" type="submit">Buscar</button>
-	  </form>
+			<input class="form-control mr-sm-2 mr-lg-3" type="search"placeholder="Nombre usuario" aria-label="Search">
+			<button class="btn btn-outline-dark d-none d-sm-block" type="submit">Buscar</button>
+		</form>
 		<a *ngIf="isLogget" class="nav-item text-dark d-flex row ml-2 mr-3 mr-md-0 p-md-0 text-decoration-none col-4 col-sm-4 col-md-1 col-lg-2 justify-content-sm-center justify-content-lg-end">
-			<i class="fas fa-2x fa-envelope-square"></i>
-			<span class="font-weight-bold ml-2 align-self-center d-none d-sm-block d-md-none d-lg-block">Mensajes</span>
+			<i class="material-icons md-28">message</i>
+			<span class="font-weight-bold ml-1 d-none d-sm-block d-md-none d-lg-block">Mensajes</span>
 		</a>
-		<div *ngIf="isLogget" class="nav-item dropdown p-md-0 col-6 col-sm-7 col-md-4 col-lg-3">
-	    <a class="nav-link text-dark d-flex align-content-center justify-content-end justify-content-lg-start" id="menu" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-	      <div class="image">
-	        <img src="assets/image/avatar-01.jpg">
-	      </div>
-	      <span class="dropdown-toggle font-weight-bold d-none d-sm-block" id="usuario">edwinpeligro85</span>
-	    </a>
-	    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu">
-	      <div>
-	        <div class="info clearfix">
-	          <div class="image">
-	            <a href="#"><img src="assets/image/avatar-01.jpg"></a>
-	          </div>
-	          <div class="content">
-	            <a class="h5 text-decoration-none text-success" href="#" id="nombre">Edwin Serna</a>
-	            <span id="email">Ejserna@example.com</span>
-	          </div>
-	        </div>
-        </div>
-        
-        <div class="dropdown-divider"></div>
-        
-	      <div class="dropdown-item active">
-	        <a href="index.html" class="text-light text-decoration-none"><i class="zmdi zmdi-home"></i>Inicio</a>
-	      </div>
-	      <div class="dropdown-item">
-	        <a href="panel-usuario.html" class="text-dark text-decoration-none"><i class="zmdi zmdi-account"></i>Perfil</a>
-	      </div>
-	      <div class="dropdown-item">
-	        <a href="#" class="text-dark text-decoration-none"><i class="zmdi zmdi-play"></i> Canchas</a>
-	      </div>
-	      <div class="dropdown-item">
-	        <a href="configuracion.html" class="text-dark text-decoration-none"><i class="zmdi zmdi-settings"></i>Mis datos</a>
-	      </div>
-                  
-        <div class="dropdown-divider"></div>
+		<div *ngIf="isLogget" class="nav-item dropdown p-md-0 col-6 col-sm-7 col-md-4 col-lg-3 mt-2">
 
-	      <div class="dropdown-item">
-	        <a href="#" class="text-dark text-decoration-none"><i class="zmdi zmdi-pin-help"></i>Ayuda</a>
-	      </div>
-	      <div class="dropdown-item">
-	        <a href="login.html" class="text-dark text-decoration-none"><i class="zmdi zmdi-power"></i>Salir</a>
-	      </div>
-	    </div>
-	  </div>
-  </div>
+			<a class="nav-link text-dark d-flex align-content-center justify-content-end justify-content-lg-start" mat-button [matMenuTriggerFor]="menu">
+				<div class="image"> <img src="assets/image/avatar-01.jpg"> </div>
+				<span class="dropdown-toggle font-weight-bold d-none d-sm-flex mb-2" id="usuario">
+					edwinpeligro85
+					<i class="material-icons md-24">arrow_drop_down</i>
+				</span>
+			</a>
+
+			<!-- Inicio del Menú de opciones -->
+			<mat-menu #menu="matMenu" class="bg-light">
+				<div class="info clearfix">
+					<div class="image"> <a href="#"><img src="assets/image/avatar-01.jpg"></a> </div>
+					<div class="content">
+						<a class="h5 text-decoration-none text-success" href="#" id="nombre">Edwin Serna</a>
+						<span id="email">Ejserna@example.com</span>
+					</div>
+				</div>
+				
+				<div class="dropdown-divider"></div>
+				
+				<div *ngFor="let item of navLink" routerLink="/{{item.ruta}}" class="dropdown-item" routerLinkActive="active">
+					<a routerLink="/{{item.ruta}}" class="text-dark text-decoration-none"><i class="material-icons">{{ item.icono }}</i>{{ item.texto }}</a>
+				</div>
+						
+				<div class="dropdown-divider"></div>
+
+				<div class="dropdown-item">
+					<a href="#" class="text-dark text-decoration-none"><i class="material-icons">help</i>Ayuda</a>
+				</div>
+				<div class="dropdown-item">
+					<a href="login.html" class="text-dark text-decoration-none"><i class="material-icons">exit_to_app</i>Salir</a>
+				</div>
+			</mat-menu>
+			<!-- Fin del Menú de opciones -->
+		</div>
+	</div>
 </nav>

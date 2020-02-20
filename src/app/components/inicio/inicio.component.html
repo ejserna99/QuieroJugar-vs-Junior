@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body animated fadeIn">
   <app-header></app-header>
   <div class="container">
       <div class="row">
@@ -8,9 +8,10 @@
           </div>
           <div class="col-lg-8 col-md-12 col-sm-12 order-lg-first bg-light mt-3 p-3 contenedores">
             <p class="font-weight-bold h3 text-center">Publicaciones</p>
+            <app-loading *ngIf="loading"></app-loading>
             <ng-container>
               <ul class="list-group">
-                <li class="nav-link" *ngFor="let item of items | async">
+                <li class="nav-link" *ngFor="let item of items">
                     <app-publicacion [publicacion]="item"></app-publicacion>
                 </li>
               </ul>

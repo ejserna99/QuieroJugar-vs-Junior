@@ -18,7 +18,7 @@ export class PublicacionComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit() {
-    if (this.publicacion.tipo_publi == 'Quiero jugar'){
+    if (this.publicacion.tipo_publi === 'Quiero jugar') {
       this.text_btn = 'Invitar';
     }
   }
@@ -27,8 +27,7 @@ export class PublicacionComponent implements OnInit {
     this.servicio.eliminarItem(id);
   }
 
-  openModal(): void
-  {
+  openModal(): void {
     const dialogRef = this.dialog.open(ModalDialogComponent, {});
     dialogRef.afterClosed().subscribe( res => {
       console.log(res);

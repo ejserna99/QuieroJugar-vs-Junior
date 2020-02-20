@@ -1,14 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+// Angular Material
+import { MatMenuModule, MatDialogModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule  } from '@angular/material';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Bootstrap widgets
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
-import { MatDialogModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material';
 
-
+// Angular FireBase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -33,6 +38,10 @@ import { MensajeInComponent } from './components/C-mensaje/mensaje-in/mensaje-in
 import { MensajeOutComponent } from './components/C-mensaje/mensaje-out/mensaje-out.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { MisDatosComponent } from './components/mis-datos/mis-datos.component';
+import { LoadingComponent } from './shareid/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -50,22 +59,33 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     MensajeInComponent,
     MensajeOutComponent,
     ErrorComponent,
-    ModalDialogComponent
+    ModalDialogComponent,
+    PerfilComponent,
+    MisDatosComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatDialogModule,
     MatButtonModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgbModule,
+    HttpClientModule
   ],
   entryComponents: [ModalDialogComponent],
-  providers: [DataApiService],
+  providers: [DataApiService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

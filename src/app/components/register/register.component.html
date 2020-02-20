@@ -1,39 +1,73 @@
-<div class="fondo">
+<div class="my-5 fondo">
   <div class="container">
     <div class="h-100 d-flex justify-content-center align-items-center">
-      <div class="p-3 p-md-5 registro">
-        <form class="text-center">
+      <div class="pt-2 pb-3 px-3 px-md-5 registro"> <!--[hidden]="submitted">-->
+        <form class="text-center" (ngSubmit)="onSubmit()" #registerForm="ngForm">
           <label class="h3 text-dark">REGISTRO</label>
-          <div class="formulario">
-            <input id="campo-nombre" type="text" placeholder="Nombres">
-          </div>
-          <div class="formulario">
-            <input id="campo-apellido" type="text" placeholder="Apellidos">
-          </div>
-          <div class="formulario">
-            <input id="campo-nombreU-registro" type="text" placeholder="Nombre de usuario">
-          </div>
-          <div class="formulario">
-            <input id="campo-correo-registro" type="email" placeholder="Correo electronico">
-          </div>
-          <div class="formulario">
-            <input id="campo-contraseña-registro" type="password" placeholder="Contraseña">
-          </div>
-          <div class="formulario">
-            <input id="campo-contraseña2-registro" type="password" placeholder="Repetir contraseña">
-          </div>
-          <div class="formulario">
-            <input id="campo" type="date" placeholder="Fecha de nacimiento">
-          </div>
+
+          <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="registerForm.inputNombre" name="inputNombre" required #inputNombre="ngModel">
+            <i matSuffix class="material-icons">account_circle</i>
+            <mat-error *ngIf="FormControl.hasError('required')">Nombre es <strong>requerido.</strong></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Apellido</mat-label>
+            <input matInput [(ngModel)]="registerForm.inputApellido" name="inputApellido" #inputApellido="ngModel">
+            <i matSuffix class="material-icons">account_circle</i>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Nombre de usuario</mat-label>
+            <input matInput [(ngModel)]="registerForm.inputApodo" name="inputApodo" required #inputApodo="ngModel">
+            <i matSuffix class="material-icons">account_circle</i>
+            <mat-error *ngIf="FormControl.hasError('required')">Nombre de usuario es <strong>requerido.</strong></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Correo electronico</mat-label>
+            <input matInput [(ngModel)]="registerForm.inputCorreo" name="inputCorreo"  required #inputPass="ngModel">
+            <i matSuffix class="material-icons">alternate_email</i>
+            <mat-error *ngIf="FormControl.hasError('email') && !FormControl.hasError('required')">
+              Por favor, introduce una dirección de correo electrónico válida
+            </mat-error>
+            <mat-error *ngIf="FormControl.hasError('required')">Se <strong>requiere</strong> correo electrónico</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [(ngModel)]="registerForm.inputPass" name="inputPass" type="password" required #inputPass="ngModel">
+            <i matSuffix class="material-icons">vpn_key</i>
+            <!-- <mat-error *ngIf="!FormControl.hasError('minLength')">Contraseña debe tener minimo <strong>6</strong> caracteres.</mat-error> -->
+            <mat-error *ngIf="FormControl.hasError('required')">Contraseña es <strong>requerido.</strong></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Repetir contraseña</mat-label>
+            <input matInput [(ngModel)]="registerForm.inputPass2" maxlength="5" name="inputPass2" type="password" (keyup)="validarPass(registerForm.inputPass, registerForm.inputPass2)" required #inputPass2="ngModel" (blur)="Mipicker.open()">
+            <i matSuffix class="material-icons">vpn_key</i>
+            <mat-error *ngIf="FormControl.hasError('required')">Contraseña es <strong>requerido.</strong></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="Mipicker" [(ngModel)]="registerForm.inputFecha" name="inputFecha" required #inputFecha="ngModel" readonly>
+            <mat-datepicker-toggle matSuffix [for]="Mipicker"></mat-datepicker-toggle>
+            <mat-datepicker #Mipicker></mat-datepicker>
+          </mat-form-field>
+ 
           <div class="d-flex pl-4">
             <label for="checkbox1" class="form-check-label ">
-              <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" class="form-check-input"><a href="#" class="h6 text-success">Terminos y condiciones</a>
+              <input type="checkbox" name="checkbox1" value="option1" class="form-check-input"><a href="#" class="h6 text-success">Terminos y condiciones</a>
             </label>
           </div>
+
           <div class="d-flex justify-content-between align-items-end mt-4">
             <button [routerLink]="['/iniciarSesion']" class="btn btn-outline-success">Volver</button>
-            <button (click)="true" class="btn btn-success">Registrar</button>
+            <button type="submit" (click)="tryRegister(registerForm.value)" [disabled]="!registerForm.form.valid" class="btn btn-success">Registrar</button>
           </div>
+
         </form>
       </div>
     </div>

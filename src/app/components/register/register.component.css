@@ -13,6 +13,7 @@
 }
 .fondo{
     background-color: #eeeeee;
+    height: 100%;
 }
 .formulario{
     width: 100%;
@@ -26,3 +27,33 @@
     outline: none;
     background-color: #f8f9fa;
 }
+::ng-deep .mat-focused .mat-form-field-label, mat-form-field i {
+    /*change color of label*/
+    color: #43c71f !important;
+}  
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #43c71f !important;
+}   
+::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #43c71f !important;
+}
+::ng-deep .mat-form-field-label {
+    /*change color of label*/
+    color: #4e4e4e !important;
+}
+mat-datepicker-toggle {
+    color: #43c71f !important;
+}
+::ng-deep .mat-datepicker-toggle-default-icon {
+    height: 24px !important;
+    width: 24px !important;
+}
+/*.ng-valid[required], .ng-valid.required, .ng-untouched:not()  {
+    border-left: 5px solid #42A948 !important; /* green */
+/*}
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442 !important; /* red */
+/*}*/
