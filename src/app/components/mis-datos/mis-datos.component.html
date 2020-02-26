@@ -1,40 +1,61 @@
 <div class="body animated fadeIn">
-  <app-header></app-header>
   <div class="container">
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 bg-light mt-3 p-5 contenedores mx-auto">
+			<div class="col-lg-12 col-md-12 col-sm-12 bg-light mt-3 p-5 contenedores mx-auto mb-3">
 				<p class="h5 text-success">Mis datos</p><hr>
-				<div class="p-md-5">
-					<form class="text-center">
-						<mat-form-field class="w-100">
+				<div class="px-md-5 pt-2">
+					<form class="text-center row">
+						<mat-form-field class="col-12 col-md-6">
               <mat-label>Nombre</mat-label>
               <input matInput [(ngModel)]="registerForm.inputNombre" name="inputNombre" #inputNombre="ngModel">
               <i matSuffix class="material-icons">account_circle</i>
             </mat-form-field>
   
-            <mat-form-field class="w-100">
+            <mat-form-field class="col-12 col-md-6">
               <mat-label>Apellido</mat-label>
               <input matInput [(ngModel)]="registerForm.inputApellido" name="inputApellido" #inputApellido="ngModel">
               <i matSuffix class="material-icons">account_circle</i>
             </mat-form-field>
   
-            <mat-form-field class="w-100">
+            <mat-form-field class="col-12 col-md-6">
               <mat-label>Nombre de usuario</mat-label>
               <input matInput [(ngModel)]="registerForm.inputApodo" name="inputApodo" #inputApodo="ngModel">
-              <i matSuffix class="material-icons">account_circle</i>
+              <i matSuffix class="material-icons">insert_emoticon</i>
             </mat-form-field>
   
-            <mat-form-field class="w-100">
+            <mat-form-field class="col-12 col-md-6">
               <mat-label>Correo electronico</mat-label>
               <input matInput [(ngModel)]="registerForm.inputCorreo" name="inputCorreo" #inputPass="ngModel" readonly>
               <i matSuffix class="material-icons">alternate_email</i>
             </mat-form-field>
+
+            <mat-form-field class="col-12">
+              <mat-label>Descripción</mat-label>
+              <textarea matInput [(ngModel)]="registerForm.inputDescripcion" name="inputDescripcion" #inputDescripcion="ngModel"></textarea>
+              <!-- <i matSuffix class="material-icons">mode_edit</i> -->
+            </mat-form-field>
   
-            <mat-form-field class="w-100">
-              <mat-label>Contraseña</mat-label>
+            <mat-form-field class="col-12 col-md-6">
+              <mat-label>Anterior Contraseña</mat-label>
               <input matInput [(ngModel)]="registerForm.inputPass" name="inputPass" type="password" #inputPass="ngModel">
               <i matSuffix class="material-icons">vpn_key</i>
             </mat-form-field>
+
+            <mat-form-field class="col-12 col-md-6">
+              <mat-label>Nueva Contraseña</mat-label>
+              <input matInput [(ngModel)]="registerForm.inputPass2" name="inputPass2" type="password" #inputPass2="ngModel">
+              <i matSuffix class="material-icons">vpn_key</i>
+            </mat-form-field>
+
+            <div class="input-group col-12 mt-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">Foto de perfil</span>
+              </div>
+              <div class="custom-file">
+                <input (change)="fotoPerfil($event)" type="file" class="custom-file-input" id="inputImgUrl" accept=".png, .jpg" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputImgUrl">Seleccione una foto</label>
+              </div>
+            </div>
 					</form>
 				</div><hr>
 				<div class="d-flex justify-content-end mt-2">

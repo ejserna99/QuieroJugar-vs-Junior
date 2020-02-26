@@ -18,18 +18,17 @@ export class InicioComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private Conexion: DataApiService, private router: Router) {
-
+    
+    console.log(Conexion);
   }
 
   ngOnInit() {
-    this.Conexion.publicaciones().pipe(
+    this.Conexion.getCollection('publicacion').pipe(
       takeUntil(this.unsubscribe$))
       .subscribe( data => {
       this.items = data;
       this.loading = false;
-      console.log(data);
     });
-    console.log('entre HP');
   }
 
   cargarLogin() {

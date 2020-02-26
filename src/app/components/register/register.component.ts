@@ -31,7 +31,11 @@ export class RegisterComponent implements OnInit {
 
   @ViewChild('Mipicker') datePicker: MatDatepicker<Date>; // TODO: Remove this when we're done
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+    if (authService.getCurrentUser()) {
+      this.router.navigate(['/Inicio']);
+    }
+  }
 
   ngOnInit() {}
 

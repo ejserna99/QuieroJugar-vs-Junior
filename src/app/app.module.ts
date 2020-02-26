@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 // Angular Material
 import { MatMenuModule, MatDialogModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule  } from '@angular/material';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -42,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { MisDatosComponent } from './components/mis-datos/mis-datos.component';
 import { LoadingComponent } from './shareid/loading/loading.component';
+import { DomSeguroPipe } from './pipes/dom-seguro.pipe';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { LoadingComponent } from './shareid/loading/loading.component';
     ModalDialogComponent,
     PerfilComponent,
     MisDatosComponent,
-    LoadingComponent
+    LoadingComponent,
+    DomSeguroPipe
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { LoadingComponent } from './shareid/loading/loading.component';
     MatFormFieldModule,
     MatInputModule,
     NgbModule,
+    MatCardModule,
     HttpClientModule
   ],
   entryComponents: [ModalDialogComponent],

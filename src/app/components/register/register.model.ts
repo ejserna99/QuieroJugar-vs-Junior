@@ -7,7 +7,9 @@ export class RegisterModel {
         public inputCorreo: string,
         public inputPass: string,
         public inputPass2: string,
-        public inputFecha: string
+        public inputFecha: string,
+        public inputDescripcion?: string,
+        public inputImgUrl?: string
       ) {  }
 
       reset() {

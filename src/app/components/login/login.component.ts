@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit {
   ErrorMessage;
   SuccessMessage: string;
 
-  constructor(public Auth: AngularFireAuth, private router: Router, private authService: AuthService) { }
+  constructor(public Auth: AngularFireAuth, private router: Router, private authService: AuthService) {
+    if (authService.getCurrentUser()) {
+      this.onLoginRedirect();
+    }
+  }
 
   ngOnInit() {
 

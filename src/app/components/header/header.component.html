@@ -1,52 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-dark pt-3">
-	<div ngbDropdown class="container cont pb-2 row">
-		<a class="navbar-brand text-light col-12 col-lg-2 justify-content-center" routerLink="/Inicio">
-			<img src="assets/image/logo.png">
-		</a>
-		<form class="form-inline mr-auto mr-md-0 ml-sm-3 col-12 col-md-6 col-lg-5 align-self-center justify-content-center">
-			<input class="form-control mr-sm-2 mr-lg-3" type="search"placeholder="Nombre usuario" aria-label="Search">
-			<button class="btn btn-outline-dark d-none d-sm-block" type="submit">Buscar</button>
-		</form>
-		<a *ngIf="isLogget" class="nav-item text-dark d-flex row ml-2 mr-3 mr-md-0 p-md-0 text-decoration-none col-4 col-sm-4 col-md-1 col-lg-2 justify-content-sm-center justify-content-lg-end">
-			<i class="material-icons md-28">message</i>
-			<span class="font-weight-bold ml-1 d-none d-sm-block d-md-none d-lg-block">Mensajes</span>
-		</a>
-		<div *ngIf="isLogget" class="nav-item dropdown p-md-0 col-6 col-sm-7 col-md-4 col-lg-3 mt-2">
+<nav class="navbar navbar-expand-lg navbar-dark px-md-5">
+	<div ngbDropdown class="container-fluid mx-auto py-2 row">
+		<a class="navbar-brand text-light col-12 col-lg-2 justify-content-center pl-md-5 mx-0" routerLink="/Inicio"><img src="assets/image/logo.png"></a>
 
-			<a class="nav-link text-dark d-flex align-content-center justify-content-end justify-content-lg-start" mat-button [matMenuTriggerFor]="menu">
-				<div class="image"> <img src="assets/image/avatar-01.jpg"> </div>
-				<span class="dropdown-toggle font-weight-bold d-none d-sm-flex mb-2" id="usuario">
-					edwinpeligro85
+		<div class="col-12 col-sm-6 col-md-5 col-lg-5 py-1 pl-sm-5 pl-md-4 d-flex justify-content-center justify-content-md-end">
+			<form class="form-inline">
+				<input class="form-control" type="search" placeholder="Nombre usuario" aria-label="Search">
+				<button class="btn btn-outline-dark d-sm-none d-md-block ml-2" type="submit">Buscar</button>
+			</form>
+		</div>
+
+		<div *ngIf="isLogget" class="col-12 col-sm-6 col-md-7 col-lg-5 d-flex justify-content-between justify-content-sm-around justify-content-md-end py-1 pr-sm-5 pr-md-5">
+			<a routerLink="/mensajes" class="nav-link text-dark d-flex">
+				<i class="material-icons md-28">message</i>
+				<span class="ml-2 d-none d-sm-block font-weight-bold">Mensajes</span>
+			</a>
+
+			<a class="nav-link text-dark d-flex" mat-button [matMenuTriggerFor]="menu">
+				<div mat-card-avatar class="example-header-image mr-0" [ngStyle]="{'background-image': 'url('+urlImagen+')'}"></div>
+				<span class="align-items-center font-weight-bold d-none d-md-flex mb-2 ml-md-2 mb-md-0" id="usuario">
+					edwinpeligro885
 					<i class="material-icons md-24">arrow_drop_down</i>
 				</span>
 			</a>
-
-			<!-- Inicio del Menú de opciones -->
-			<mat-menu #menu="matMenu" class="bg-light">
-				<div class="info clearfix">
-					<div class="image"> <a href="#"><img src="assets/image/avatar-01.jpg"></a> </div>
-					<div class="content">
-						<a class="h5 text-decoration-none text-success" href="#" id="nombre">Edwin Serna</a>
-						<span id="email">Ejserna@example.com</span>
-					</div>
-				</div>
-				
-				<div class="dropdown-divider"></div>
-				
-				<div *ngFor="let item of navLink" routerLink="/{{item.ruta}}" class="dropdown-item" routerLinkActive="active">
-					<a routerLink="/{{item.ruta}}" class="text-dark text-decoration-none"><i class="material-icons">{{ item.icono }}</i>{{ item.texto }}</a>
-				</div>
-						
-				<div class="dropdown-divider"></div>
-
-				<div class="dropdown-item">
-					<a href="#" class="text-dark text-decoration-none"><i class="material-icons">help</i>Ayuda</a>
-				</div>
-				<div class="dropdown-item">
-					<a href="login.html" class="text-dark text-decoration-none"><i class="material-icons">exit_to_app</i>Salir</a>
-				</div>
-			</mat-menu>
-			<!-- Fin del Menú de opciones -->
 		</div>
+
+		<!-- Inicio del Menú de opciones -->
+		<mat-menu #menu="matMenu" class="bg-light">
+			<mat-card class="example-card bg-light">
+				<mat-card-header>
+					<div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url('+urlImagen+')'}"></div>
+					<mat-card-title class="text-dark">{{name}}</mat-card-title>
+					<mat-card-subtitle class="text-secondary">{{email}}</mat-card-subtitle>
+				</mat-card-header>
+			</mat-card>
+			
+			<div class="dropdown-divider"></div>
+			
+			<div *ngFor="let item of navLink" routerLink="/{{item.ruta}}" class="dropdown-item" routerLinkActive="active">
+				<a routerLink="/{{item.ruta}}" class="text-dark text-decoration-none"><i class="material-icons">{{ item.icono }}</i>{{ item.texto }}</a>
+			</div>
+					
+			<div class="dropdown-divider"></div>
+
+			<div class="dropdown-item">
+				<a href="#" class="text-dark text-decoration-none"><i class="material-icons">help</i>Ayuda</a>
+			</div>
+			<div class="dropdown-item">
+				<a (click)="logout()" class="text-dark text-decoration-none"><i class="material-icons">exit_to_app</i>Salir</a>
+			</div>
+		</mat-menu>
+		<!-- Fin del Menú de opciones -->
 	</div>
 </nav>

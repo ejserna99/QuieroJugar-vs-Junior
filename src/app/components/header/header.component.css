@@ -3,70 +3,33 @@ nav{
     height: 60px;
     background-color: #43c71f;
 }
-.image {
-    width: 45px;
-    height: 45px;
-    float: left;
-    overflow: hidden;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 100%;
+
+::ng-deep.mat-menu-content {
+    width: 280px !important;
 }
-.content {
-    display: flex;
-    flex-direction: column;
-    margin-left: 45px;
-    padding: 9px 0;
-    padding-left: 12px;
+  
+.example-header-image {
+    background-size: cover;
 }
-.content > a {
-    color: #333;
-    text-transform: capitalize;
-    font-weight: 500;
-}
-.info {
-    padding: 25px;
-}
-.info .image {
-    float: left;
-    height: 65px;
-    width: 65px;
-    overflow: hidden;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 100%;
-}
-.image > img, .image > a img{
-    width: 100%;
-}
-.info .content {
-    margin-left: 65px;
-    padding: 11px 0;
-    padding-left: 12px;
-}
-.nav-item a span{
-    padding: 10px;
-    
-}
+
 .dropdown-item a i {
     line-height: 1;
     margin-right: 10px;
     font-size: 18px;
     vertical-align: middle;
 }
+
 .active {
     background-color: #43c71f;
-}
-.cont{
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .dropdown-toggle::after {
     border-top: none;
+}
+
+::ng-deep.mat-button-wrapper {
+    width: 100%;
+    display: flex;
 }
 
 .dropdown-item:hover, .dropdown-item:hover a{
@@ -85,11 +48,19 @@ nav{
     color: black;
 }
 
-@media (min-width: 768px) {
-    .img-public{
-        height: 90px !important;
-    }
+.mat-card-header .mat-card-title {
+    font-size: 13px;
+    font-weight: bold;
 }
+
+.mat-card-content, .mat-card-subtitle {
+    font-size: 11px;
+}
+
+.form-inline {
+    flex-flow: row;
+}
+
 @media (max-width: 992px) {
   nav{
         height: auto;

@@ -40,4 +40,15 @@ mat-form-field i {
 ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
     background-color: #43c71f !important;
-} 
+}
+
+.custom-file-label::after {
+    content: "Elegir" !important;
+    background-color: #43c71f54;
+    border-color: #43c71f;
+}
+
+.input-group-text {
+    background-color: #43c71f54;
+    border-color: #43c71f;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from '../register/register.model';
+import { DataApiService } from 'src/app/service/data-api.service';
 
 @Component({
   selector: 'app-mis-datos',
@@ -8,11 +9,15 @@ import { RegisterModel } from '../register/register.model';
 })
 export class MisDatosComponent implements OnInit {
 
-  registerForm = new RegisterModel('Edwin', '', '', '', '', '', '');
+  registerForm = new RegisterModel('', '', '', '', '', '', '', '', '');
 
-  constructor() { }
+  constructor(private dataApiService: DataApiService) { }
 
   ngOnInit() {
   }
 
+  fotoPerfil(value) {
+    console.log(value.target.files[0]);
+    this.dataApiService.addImage(value.target.files[0]);
+  }
 }
